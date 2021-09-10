@@ -1,0 +1,43 @@
+---
+- name: Install nginx
+  hosts: centosNodes
+  become: true
+
+ vars:
+  - MyMessage: "Hello World to SJSU"
+
+ #Install the epel release package
+tasks:
+  - name: Install epel-release
+    yum:
+      name: epel-release
+      state: present
+
+  # Install the nginx service.
+  - name: Install nginx
+    yum:
+      name: nginx
+      state: present
+    register: status_nginx
+
+  - name: coying index.html
+      template: src=index.html.j2 dest=/usr/share/nginx/html/index.html
+
+   #Check the installation status
+  - name: check the nginx status
+      debug:
+        msg: "Nginx status: {{status_nginx}}"
+
+  #Start the Ngnix Service
+  - name: Start and enable  NGiNX service
+    service:
+      name: nginx
+      state: restarted
+    register: nginx_service_status
+
+ #Check the ngnix service status
+   - name: check the nginx service status
+          debug:
+            msg: "nginx service status: {{nginx_service_status}}"
+
+
