@@ -21,12 +21,12 @@
     register: status_nginx
 
   - name: coying index.html
-      template: src=index.html.j2 dest=/usr/share/nginx/html/index.html
+    template: src=index.html.j2 dest=/usr/share/nginx/html/index.html
 
    #Check the installation status
   - name: check the nginx status
-      debug:
-        msg: "Nginx status: {{status_nginx}}"
+    debug:
+      msg: "Nginx status: {{status_nginx}}"
 
   #Start the Ngnix Service
   - name: Start and enable  NGiNX service
@@ -37,7 +37,7 @@
 
  #Check the ngnix service status
    - name: check the nginx service status
-          debug:
-            msg: "nginx service status: {{nginx_service_status}}"
+     debug:
+       msg: "nginx service status: {{nginx_service_status}}"
 
 
