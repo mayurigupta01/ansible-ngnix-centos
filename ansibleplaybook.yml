@@ -36,8 +36,8 @@
     register: nginx_service_status
 
  #Check the ngnix service status
-   - name: check the nginx service status
-     debug:
-       msg: "nginx service status: {{nginx_service_status}}"
+  - name: check the nginx service status
+   debug:
+     msg: "nginx service status: {{nginx_service_status}}"
 
 
