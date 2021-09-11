@@ -1,0 +1,12 @@
+---
+- hosts: centosNodes
+  tasks:
+      - name: "Uninstall NginX server "
+        yum:
+          name: nginx
+          state: absent
+
+      - name: "Stop Nginx Services"
+        service:
+          name: nginx
+          state: stopped
