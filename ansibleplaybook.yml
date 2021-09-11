@@ -7,11 +7,15 @@
   - customMessage: "Hello World to SJSU"
 
   pre_tasks:
-  - name: install python 2
-    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  - name: install python 3
+    raw: yum update -y && yum install -y python3
+    register: python3_install_log
 
  #Install the epel release package
   tasks:
+  - debug:
+      var=python3_install_log.stdout_lines
+
   - name: Install epel-release
     yum:
       name: epel-release
