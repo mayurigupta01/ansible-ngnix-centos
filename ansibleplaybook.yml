@@ -6,6 +6,10 @@
   vars:
   - customMessage: "Hello World to SJSU"
 
+  pre_tasks:
+  - name: install python 2
+    raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
  #Install the epel release package
   tasks:
   - name: Install epel-release
