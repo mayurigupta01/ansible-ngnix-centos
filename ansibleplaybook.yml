@@ -37,7 +37,7 @@
 
  #Check the ngnix service status
   - name: check the nginx service status
-   debug:
+    debug:
      msg: "nginx service status: {{nginx_service_status}}"
 
 
