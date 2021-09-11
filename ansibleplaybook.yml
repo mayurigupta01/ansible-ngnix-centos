@@ -3,11 +3,11 @@
   hosts: centosNodes
   become: true
 
- vars:
-  - MyMessage: "Hello World to SJSU"
+  vars:
+  - customMessage: "Hello World to SJSU"
 
  #Install the epel release package
-tasks:
+  tasks:
   - name: Install epel-release
     yum:
       name: epel-release
